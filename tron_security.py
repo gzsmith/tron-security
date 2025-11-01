@@ -87,7 +87,7 @@ class TronCore:
         except Exception as e:
             pass
         
-    def scan_network(self, ip_range="10.0.0.0/24"):
+    def scan_network(self, ip_range="0.0.0.0/24"):
         """Scan network for active devices"""
         print(f"[TRON] Scanning network: {ip_range}")
         
@@ -318,7 +318,7 @@ def main():
     
     # Perform initial network scan
     print("[TRON] Performing initial network scan...")
-    devices = tron.scan_network("10.0.0.0/24")
+    devices = tron.scan_network("0.0.0.0/24")
     print(f"[TRON] Found {len(devices)} devices")
     
     # Display initial status
@@ -333,7 +333,7 @@ def main():
         print("[TRON] Monitoring active. Press Ctrl+C to stop.")
         while True:
             time.sleep(300)  # Scan every 5 minutes
-            tron.scan_network("10.0.0.0/24")
+            tron.scan_network("0.0.0.0/24")
             dashboard.display_status()
             
     except KeyboardInterrupt:
